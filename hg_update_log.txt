@@ -1,0 +1,30 @@
+1-配置了CUDA10.0.1
+2-配置了CUDNN7.6.5 
+3-修改了darknet/Makefile：
+GPU=1
+CUDNN=0
+OPENCV=0
+
+
+CC=gcc
+CPP=g++
+NVCC=/usr/local/cuda/bin/nvcc 
+AR=ar
+ARFLAGS=rcs
+OPTS=-Ofast
+LDFLAGS= -lm -pthread 
+COMMON= -Iinclude/ -Isrc/ -I/opt/conda/include 
+CFLAGS=-Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC
+
+ifeq ($(GPU), 1) 
+COMMON+= -DGPU -I/usr/local/cuda/include
+CFLAGS+= -DGPU
+LDFLAGS+= -L/usr/local/cuda/lib64 -lcuda -lcudart -lcublas -lcurand
+endif
+
+ifeq ($(CUDNN), 1) 
+COMMON+= -DCUDNN 
+CFLAGS+= -DCUDNN
+LDFLAGS+=-lcudnn
+endif
+
