@@ -25,6 +25,6 @@ if __name__ == '__main__':
         if(file_num<620):                     #保留620个文件用于训练
             train_file.write(file_path+'\n')  #用于训练前620个的图片路径保存在train.txt里面
             val_file.write(file_path+'\n')    #其余的文件保存在val.txt里面
-	    print(file_path)
+        print(file_path)
     train_file.close()#关闭文件
 val_file.close()

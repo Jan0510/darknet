@@ -1,0 +1,6 @@
+classes= 13
+train  = /home/jovyan/darknet/VOCdevkit/VOC_traffic/ImageSets/Main/traffic_train.txt
+valid  = /home/jovyan/darknet/VOCdevkit/VOC_traffic/ImageSets/Main/traffic_val.txt
+names = data/traffic.names
+backup =backup/traffic
+
